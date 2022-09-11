@@ -13,6 +13,7 @@ public class BaseResponse {
     String color;
     String application;
     List<String> inspiration;
+    AddressWrapper addressWrapper;
 
 
 }

@@ -1,5 +1,7 @@
 package com.pk.stalin.service;
 
+import com.pk.stalin.entity.Address;
+import com.pk.stalin.entity.AddressWrapper;
 import com.pk.stalin.entity.BaseResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,20 @@ public class BaseServiceImpl implements BaseService{
         response.setApplication(appName);
 
         List<String> favs= Arrays.asList("Nadal","Sachin", "PawanKalyan", "Ronaldo");
+        response.setAddressWrapper(generateAddress());
         response.setInspiration(favs);
         return response;
+    }
+
+    public AddressWrapper generateAddress(){
+        AddressWrapper addressWrapper = new AddressWrapper();
+        Address address = new Address();
+        address.setCity("Vizag");
+        address.setState("Andhra Pradesh");
+        address.setCountry("India");
+
+        addressWrapper.setAddress(address);
+
+        return addressWrapper;
     }
 }
