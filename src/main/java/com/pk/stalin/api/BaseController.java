@@ -1,6 +1,8 @@
 package com.pk.stalin.api;
 
 import com.pk.stalin.entity.BaseResponse;
+import com.pk.stalin.entity.Education;
+import com.pk.stalin.entity.EducationResponse;
 import com.pk.stalin.service.BaseService;
 import com.pk.stalin.service.BaseServiceImpl;
 import com.sun.xml.internal.rngom.parse.host.Base;
@@ -23,6 +25,17 @@ public class BaseController implements BaseApi {
         BaseResponse response = baseService.findBaseResponse();
         return ResponseEntity.status(200).body(response);
     }
+
+    @Override
+    public ResponseEntity<EducationResponse> findEducationResponse(){
+
+        EducationResponse response = new EducationResponse();
+        Education education = baseService.findEducation();
+        response.setData(education);
+        return ResponseEntity.status(200).body(response);
+
+    }
+
 
 
 

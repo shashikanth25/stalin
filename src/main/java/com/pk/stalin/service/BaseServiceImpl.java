@@ -3,6 +3,7 @@ package com.pk.stalin.service;
 import com.pk.stalin.entity.Address;
 import com.pk.stalin.entity.AddressWrapper;
 import com.pk.stalin.entity.BaseResponse;
+import com.pk.stalin.entity.Education;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,14 @@ public class BaseServiceImpl implements BaseService{
         return response;
     }
 
-    public AddressWrapper generateAddress(){
+    public Education findEducation(){
+
+        List<String> citiesLived = Arrays.asList("Vizag, Jaipur, Hyderabad");
+        Education education = Education.builder().school("New Horizon").inter("Sri Chaitanya").btech("LNMIIT").cities(citiesLived).build();
+        return education;
+    }
+
+    private AddressWrapper generateAddress(){
         AddressWrapper addressWrapper = new AddressWrapper();
         Address address = new Address();
         address.setCity("Vizag");
